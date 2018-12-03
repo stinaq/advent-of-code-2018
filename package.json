@@ -1,14 +1,10 @@
 {
   "name": "advent-of-code",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "Advent of code 2018",
   "scripts": {
     "start": "./solutions/index.js"
   },
   "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "express": "^4.16.4"
-  }
+  "license": "ISC"
 }
