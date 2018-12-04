@@ -11,8 +11,8 @@ const part1 = content => {
 
     const x1 = Number(numbers[0]);
     const y1 = Number(secondPart[0]);
-    const x2 = x1 + Number(thirdPart[0]);
-    const y2 = y1 + Number(thirdPart[1]);
+    const x2 = x1 + Number(thirdPart[0]) - 1;
+    const y2 = y1 + Number(thirdPart[1]) - 1;
 
     if (x2 > maxWidth) {
       maxWidth = x2;
@@ -29,16 +29,24 @@ const part1 = content => {
     };
   });
 
-  const rows = new Array(maxHeight);
-  const fabric = [rows.map(() => new Array(maxWidth))];
+  const fabric = new Array(maxHeight);
+  for (let i = 0; i < fabric.length; i++) {
+    fabric[i] = new Array(maxWidth);
+  }
 
-  // const a = [
-  //   [[],[],[]],
-  //   [],
-  //   []
-  // ]
-
-  console.log(formattedClaims);
+  formattedClaims.forEach(claim => {
+    console.log(claim);
+    for (let rowIndex = claim.y1; rowIndex < claim.y2; rowIndex++) {
+      console.log(rowIndex);
+      for (let columnIndex = claim.x1; columnIndex < claim.x2; columnIndex++) {
+        if (fabric[rowIndex][columnIndex]) {
+          fabric[rowIndex][columnIndex]++;
+        } else {
+          fabric[rowIndex][columnIndex] = 1;
+        }
+      }
+    }
+  });
   console.log(fabric);
 };
 
