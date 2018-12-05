@@ -43,14 +43,15 @@ const part1 = content => {
           fabric[rowIndex][columnIndex].amount++;
         } else {
           fabric[rowIndex][columnIndex] = {
-            amount: 1
+            amount: 1,
+            id: claim.id
           };
         }
       }
     }
-    console.log(fabric);
   });
 
+  console.log();
   const flattenedFabric = [].concat.apply([], fabric).filter(Boolean);
   const numberOfOverlapping = flattenedFabric.filter(hit => hit.amount > 1)
     .length;
