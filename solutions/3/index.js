@@ -23,6 +23,7 @@ const part1 = content => {
     }
 
     return {
+      size: (x2 - x1) * (y2 - y1),
       id,
       x1,
       y1,
@@ -51,11 +52,18 @@ const part1 = content => {
     }
   });
 
-  console.log();
   const flattenedFabric = [].concat.apply([], fabric).filter(Boolean);
   const numberOfOverlapping = flattenedFabric.filter(hit => hit.amount > 1)
     .length;
   console.log(`Number of overlapping claims: ${numberOfOverlapping}`);
+  formattedClaims.forEach(claim => {
+    const numberOfOneHits = flattenedFabric.filter(groupedHits => {
+      return groupedHits.id === claim.id && groupedHits.amount < 2;
+    }).length;
+    if (numberOfOneHits === claim.size) {
+      console.log(`The claim with no intersections: ${claim.id}`);
+    }
+  });
 };
 
 module.exports = { part1 };
