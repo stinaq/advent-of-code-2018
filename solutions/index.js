@@ -20,10 +20,17 @@ console.log("=======================");
 // two.part1(content2);
 // two.part2(content2);
 
+// console.log("");
+// console.log("DAY 3");
+// const fileName3 = __dirname + "/3/input.txt";
+// const content3 = fs.readFileSync(fileName3, "utf8");
+// const three = require("./3");
+// three.part1(content3);
+
 console.log("");
-console.log("DAY 3");
-const fileName3 = __dirname + "/3/input.txt";
-const content3 = fs.readFileSync(fileName3, "utf8");
-const three = require("./3");
-three.part1(content3);
-// two.part2(content2);
+console.log("DAY 5");
+const fileName5 = __dirname + "/5/input.txt";
+const content5 = fs.readFileSync(fileName5, "utf8");
+const three = require("./5");
+three.part1(content5);
+// two.part2(content5);
