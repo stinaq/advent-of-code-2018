@@ -37,5 +37,24 @@ function destroy(input) {
 const fileName5 = __dirname + "/input.txt";
 const content5 = fs.readFileSync(fileName5, "utf8");
 
-const fullyReactedPolymer = destroy(content5);
-console.log(fullyReactedPolymer.length);
+// const fullyReactedPolymer = destroy(content5);
+// console.log(fullyReactedPolymer.length);
+
+// PART 2
+function reduncingOneLetter(content) {
+  const alphabet = "abcdefghijklmnopqrstuvwxyz";
+  let lengthOfSmallest = Number.MAX_SAFE_INTEGER;
+  alphabet.split("").forEach(letter => {
+    const upperCase = letter.toUpperCase();
+    const re = new RegExp(upperCase, "ig");
+    const withoutLetter = content.replace(re, "");
+    const reactedPolymer = destroy(withoutLetter);
+    if (reactedPolymer.length < lengthOfSmallest) {
+      lengthOfSmallest = reactedPolymer.length;
+    }
+  });
+
+  console.log("The smallest number is ", lengthOfSmallest);
+}
+
+reduncingOneLetter(content5);
